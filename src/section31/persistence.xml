@@ -1,0 +1,9 @@
+<persistence>
+    <persistence-unit name="java-trainingPersistence">
+        <jta-data-source>connectionJavaTraining</jta-data-source>
+
+        <properties>
+            <property name="openejb.jpa.auto-scan" value="true" />
+            <property name="openejpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
+        </properties>
+</persistence>
