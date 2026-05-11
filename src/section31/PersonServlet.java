@@ -28,8 +28,10 @@ public class PersonServlet {
             p.setAge(40);
             
             personService.savePerson(p);
-        } else {
-
+        } else if(method.equals("get")){
+            Long id = Long.parseLong(request.getParameter("id"));
+            Person p = personService.getPersonById(id);
+            response.getWriter().println(p.getSurname() + " " + p.getName());
         }
     }
 

@@ -1,4 +1,6 @@
 package section31;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,6 +13,8 @@ public class Person{
     private String name;
     private String surname;
     private int age;
+
+    private List<Address> address;
 
     // getter
     @Id

@@ -18,7 +18,7 @@ public class PersonServiceBean implements PersonServiceBeanRemote, PersonService
     }
     
     public void update(Person p) {
-
+        manager.merge(p);
     }
     
     public void deletePerson(Person p) {
@@ -26,6 +26,6 @@ public class PersonServiceBean implements PersonServiceBeanRemote, PersonService
     }
 
     public Person getPersonById(Long id){
-        return null;
+        return manager.find(Person.class, id);
     }
 }
