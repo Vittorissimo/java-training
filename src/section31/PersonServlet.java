@@ -26,6 +26,12 @@ public class PersonServlet {
             p.setName("Mario");
             p.setSurname("Rossi");
             p.setAge(40);
+
+            Account a = new Account();
+            a.setPassword("12345678");
+            a.setUsername("Mario");
+
+            p.setAccount(a);
             
             personService.savePerson(p);
         } else if(method.equals("get")){
