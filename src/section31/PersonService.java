@@ -7,4 +7,7 @@ public interface PersonService {
     public void update(Person p);
     public void deletePerson(Person p);
     public Person getPersonById(Long id);
+    public void createAccount();
+    public void createAnAccountAssociatedWithAUser();
+    public void assignStudentToTheCourse();
 }
