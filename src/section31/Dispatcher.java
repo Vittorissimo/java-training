@@ -10,6 +10,11 @@ public class Dispatcher {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getServletContext().getRequestDispatcher("/jsp/header.jsp").include(request, response);
 
+        long rows = LocalCourse.userListCount();
+        int resultForPage = 2;
+        int p = 1;
+        
+        LocalCourse.userList();
         LocalCourse.assignStudentToTheCourse();
         LocalCourse.createAnAccountAssociatedWithAUser();
         LocalCourse.printInvoice();

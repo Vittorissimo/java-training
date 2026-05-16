@@ -2,11 +2,13 @@ package section31;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Stateless
 public class WebBeanCourse {
@@ -96,5 +98,29 @@ public class WebBeanCourse {
         s.getCourseList().add(c);
 
         manager.persist(s);
+    }
+
+    public long userListCount() {
+        Query q = manager.createQuery("SELECT (u.count(u.id)) FROM User u");
+
+        return (long)q.getSingleResult();
+    }
+
+    public void userList(int p, int maxResults) {
+        Query q = manager.createNamedQuery("userList");
+
+        List<User> users = q.getResultList();
+
+        for (User u : users) {
+            System.out.println(u.getSurname() + " " + u.getName());
+        }
+
+        Query q2 = manager.createQuery("SELECT u FROM User WHERE u.surname = :c");
+
+        q2.setFirstResult(p);
+        q2.setMaxResults(maxResults);
+
+        q2.setParameter("c", "Verdi");
+        List<User> users2 = q2.getResultList();
     }
 }

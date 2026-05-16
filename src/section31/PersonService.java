@@ -10,4 +10,6 @@ public interface PersonService {
     public void createAccount();
     public void createAnAccountAssociatedWithAUser();
     public void assignStudentToTheCourse();
+    public void userList(int p, int maxResults);
+    public long userListCount();
 }
