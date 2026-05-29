@@ -6,9 +6,78 @@
     <h:head>
         <meta charset="ISO-8859-1"></meta>
         <title> Title </title>
+
+        <h:outStylesheet name="body.css" library="css"></h:outStylesheet>
+        <h:outStylesheet name="alert.js" library="css"></h:outStylesheet>
     </h:head>
 
     <h:body>
         <h1> Hello! </h1>
+
+        <h:inputText id="name" value="#{hello.name}" required="true" requiredMessage="mandatory field"></h:inputText>
+        <h:message for="name"></h:message>
+        <br />
+        <h:inputTextarea value="#{hello.biography}" rows="5" cols="50"></h:inputTextarea>
+        <br />
+        <h:selectManyCheckbox value="3">
+            <f:selectItem itemValue="1" itemLabel="operation 1"></f:selectItem>
+            <f:selectItem itemValue="2" itemLabel="operation 2"></f:selectItem>
+            <f:selectItem itemValue="3" itemLabel="operation 3"></f:selectItem>
+        </h:selectManyCheckbox>
+        <br />
+        <h:selectManyListbox>
+            <f:selectItem itemValue="" itemLabel=""></f:selectItem>
+            <f:selectItem itemValue="1" itemLabel="element 1"></f:selectItem>
+            <f:selectItem itemValue="2" itemLabel="element 2"></f:selectItem>
+            <f:selectItem itemValue="3" itemLabel="element 3"></f:selectItem>
+        </h:selectManyListbox>
+        <br />
+        <h:selectOneListbox>
+            <f:selectItem itemValue="" itemLabel=""></f:selectItem>
+            <f:selectItem itemValue="1" itemLabel="element 1"></f:selectItem>
+            <f:selectItem itemValue="2" itemLabel="element 2"></f:selectItem>
+            <f:selectItem itemValue="3" itemLabel="element 3"></f:selectItem>
+        </h:selectOneListbox>
+        <br />
+        <h:selectOneMenu>
+            <f:selectItem itemValue="" itemLabel=""></f:selectItem>
+            <f:selectItem itemValue="1" itemLabel="element 1"></f:selectItem>
+            <f:selectItem itemValue="2" itemLabel="element 2"></f:selectItem>
+            <f:selectItem itemValue="3" itemLabel="element 3"></f:selectItem>
+        </h:selectOneMenu>
+        <br />
+        <h:outputText value="test text!">
+        <br />
+        <h:outputFormat value="test text {0} {1}!">
+            <f:param aria-valuemax="Parameter 1"></f:param>
+            <f:param aria-valuemax="Parameter 2"></f:param>
+        </h:outputFormat>
+        <br />
+        <h:graphicImage url="../img/image.png">
+        <br />
+        <h:outputText value="BIO #{hello.biography}!"></h:outputText>
+        <br />
+        <h:panelGrid columns="3" cellpadding="1" cellspacing="3" border="1">
+            <f:facet name="header">
+                <h:outputText value="Title Table"></h:outputText>
+            </f:facet>
+            
+            <f:facet name="footer">
+                <h:outputText value="Footer Table"></h:outputText>
+            </f:facet>
+        </h:panelGrid>
+        <br />
+
+        <h:outputText value="Java"></h:outputText>
+        <h:outputText value="training"></h:outputText>
+        <h:outputText value="100"></h:outputText>
+
+        <br />
+        <h:link outcome="home2.xhtml">Page 2</h:link>
+        <h:commandLink action="home2.xhtml">Page 2 Command</h:commandLink>
+        <br />
+        <h:commandButton value="Enter" action="#{hello.sayHello}"></h:commandButton>
+        <h:form>
+        </h:form>
     </h:body>
 </html>
