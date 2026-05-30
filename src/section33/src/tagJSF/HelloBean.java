@@ -1,6 +1,8 @@
 package section33.src.tagJSF;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.annotation.ManagedProperty;
 import javax.faces.bean.ManagedBean;
@@ -14,6 +16,7 @@ public class HelloBean implements Serializable {
 
     private String name;
     private String biography;
+    private List<String> options;
 
     // getter
     public String getName() {
@@ -24,6 +27,10 @@ public class HelloBean implements Serializable {
         return this.biography;
     }
 
+    public List<String> getOptions() {
+        return this.options;
+    }
+
     // setter
     public void setName(String name) {
         this.name = name;
@@ -31,6 +38,10 @@ public class HelloBean implements Serializable {
     
     public void setBiography(String biography) {
         this.biography = biography;
+    }
+
+    public void setOptions(List<String> options) {
+        this.options = options;
     }
 
     public String sayHello() {
@@ -46,5 +57,29 @@ public class HelloBean implements Serializable {
             default:
                 return "home";
         }
+    }
+
+    public void update() {
+        //...//
+    }
+
+    public List<String> search(String query) {
+        List<String> r = new ArrayList<String>();
+
+        if(query.equals("course")) {
+            r.add("course Java");
+            r.add("course JSF");
+            r.add("course PrimeFaces");
+            r.add("course Java EE");
+        }
+        return r;
+    }
+    
+    public void init() {
+        this.options = new ArrayList<String>();
+        this.options.add("course Java");
+        this.options.add("course JSF");
+        this.options.add("course PrimeFaces");
+        this.options.add("course Java EE");
     }
 }

@@ -17,6 +17,33 @@
 
         <h:form>
             <ui:editor></ui:editor>
+            <ui:inputText value="#{hello.name}"></ui:inputText>
+            <br />
+            <ui:commandButton actionListener="#{hello.update}" ajax="false" update="out" value="enter" icon="ui-icon-star"></ui:commandButton>
+            <br />
+            -<ui:outputLabel value="#{hello.name}" id="out"></ui:outputLabel>-
+            <br />
+            <ui:inputTextarea completeMethod="#{hello.search}" queryDelay="1" minQueryLength="3" counter="display" counterTemplate="{0} available characters"></ui:inputTextarea>
+            <ui:outputLabel id="display"></ui:outputLabel>
+            <br />
+            <ui:inputNumber decimalSeparator="," thousandSeparator="." symbol="EUR" symbolPosition="s" value=""></ui:inputNumber>
+            <br />
+            <ui:inputSwitch value=""></ui:inputSwitch>
+            <br />
+            <ui:spinner value=""></ui:spinner>
+            <br />
+            <ui:password value="" feedback="true"></ui:password>
+            <br />
+            <ui:outputLabel for="pwd1" value="Password" />
+            <ui:password id="pwd1" value="" match="pwd2"></ui:password>
+            <br />
+            <ui:outputLabel for="pdw2" value="confirm password" />
+            <ui:password id="pdw2" value=""></ui:password>
+            <br />
+            <ui:commandButton actionListener="#{hello.update}" ajax="false" value="enter" icon="ui-icon-star"></ui:commandButton>
+            <ui:selectCheckboxMenu label="select options" filter="true">
+                <f:selectItems value="#{hello.options}"></f:selectItems>
+            </ui:selectCheckboxMenu>
         </h:form>
     </h:body>
 </html>
