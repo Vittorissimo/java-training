@@ -16,6 +16,15 @@
         <h1> Hello 1! </h1>
 
         <h:form>
+            <br />
+            <ui:inputMask mask="99/99/9999" value=""></ui:inputMask>
+            <ui:calendar value="" mode="inline"></ui:calendar>
+            <br />
+            <ui:fieldset legend="text 1" toggleable="true" toggleSpeed="50">
+                <p>
+                    This sentence serves as testing...
+                </p>
+            </ui:fieldset>
             <ui:editor></ui:editor>
             <ui:inputText value="#{hello.name}"></ui:inputText>
             <br />
