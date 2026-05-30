@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html   xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="gttp://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <meta charset="ISO-8859-1"></meta>
+        <title> Title </title>
+
+        <h:outStylesheet name="body.css" library="css"></h:outStylesheet>
+        <h:outStylesheet name="alert.js" library="css"></h:outStylesheet>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="default.xhtml">
+            <ui:define name="footer">
+                <strong> TEST! </strong>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
