@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html   xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <meta charset="ISO-8859-1"></meta>
+        <title> Title </title>
+
+        <h:outStylesheet name="body.css" library="css"></h:outStylesheet>
+        <h:outStylesheet name="alert.js" library="css"></h:outStylesheet>
+    </h:head>
+
+    <h:body>
+        <h1> Hello 1! </h1>
+
+        <h:form>
+            <label for="name"> Name </label>
+            <h:inputText id="name" value="#{hello.name}">
+                <!-- <f:validateLength minimum="3"></f:validateLength> -->
+                <f:validateLongrange minimum="10" maximum="20"></f:validateLongrange>
+            </h:inputText>
+            <h:message for="name"></h:message>
+
+            <h:commandButton value="ENTER" action="#{hello.sayHello}"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>
