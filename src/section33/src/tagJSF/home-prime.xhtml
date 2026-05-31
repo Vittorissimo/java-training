@@ -17,6 +17,66 @@
 
         <h:form>
             <br />
+            <ui:galleria var="img" value="#{hello.images}" panelWidth="500" panelHeight="500" showCaption="true">
+                <ui:graphicImage name="img/#{img}" alt="Image #{img}" title="Title Image #{img}" />
+            </ui:galleria>
+            <br />
+
+            <ui:carousel var="img" value="#{hello.images}" responsive="true">
+                <ui:graphicImage name="img/#{img}" alt="Image #{img}" title="Title Image #{img}" />
+            </ui:carousel>
+
+            <br />
+            <ui:orderList var="course" value="#{hello.options}" itemValue="course" itemLabel="course" controlsLocation="none"></ui:orderList>
+
+            <br />
+            <ui:breadCrumb>
+                <ui:menuitem value="menu 1" url="#"></ui:menuitem>
+                <ui:menuitem value="menu 2" url="#"></ui:menuitem>
+                <ui:menuitem value="menu 3" url="#"></ui:menuitem>
+                <ui:menuitem value="menu 4" url="#"></ui:menuitem>
+                <ui:menuitem value="menu 5" url="#"></ui:menuitem>
+            </ui:breadCrumb>
+            <br />
+            <ui:commandButton type="button" id="btnconfirm" value="Open confirm">
+                <ui:confirm header="confirmation action" message="are you sure to the confirm?"></ui:confirm>
+            </ui:commandButton>
+
+            <ui:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                <ui:commandButton type="button" value="Yes"></ui:commandButton>
+                <ui:commandButton type="button" value="No"></ui:commandButton>
+            </ui:confirmDialog>
+
+            <br />
+            <ui:commandButton type="button" id="btn" value="Open dialog"></ui:commandButton>
+            <ui:overlayPanel for="btn" id="btnPanel" hideEffect="fade">
+                <p> This sentence serves as testing </p>
+                <p> This sentence serves as testing </p>
+                <p> This sentence serves as testing </p>
+            </ui:overlayPanel>
+
+            </ui:overlayPanel>
+            <br />
+            <ui:dialog widgetVar="alert" header="Title dialog">
+                <ui:outputLabel value="Are you sure>"></ui:outputLabel>
+            </ui:dialog>
+            <ui:commandButton onclick="PF('alert').show();" type="button" value="Open"></ui:commandButton>
+
+            <br />
+            <ui:accordionPanel multiple="true">
+                <ui:tab title="Panel 1">
+                    <p> This sentence serves as testing </p>
+                </ui:tab>
+                <ui:tab title="Panel 2">
+                    <p> This sentence serves as testing </p>
+                </ui:tab>
+                <ui:tab title="Panel 3">
+                    <p> This sentence serves as testing </p>
+                </ui:tab>
+            </ui:accordionPanel>
+
+
+            <br />
             <ui:inputMask mask="99/99/9999" value=""></ui:inputMask>
             <ui:calendar value="" mode="inline"></ui:calendar>
             <br />

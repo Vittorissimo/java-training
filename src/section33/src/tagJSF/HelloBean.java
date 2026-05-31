@@ -17,6 +17,7 @@ public class HelloBean implements Serializable {
     private String name;
     private String biography;
     private List<String> options;
+    private List<String> images;
 
     // getter
     public String getName() {
@@ -30,6 +31,10 @@ public class HelloBean implements Serializable {
     public List<String> getOptions() {
         return this.options;
     }
+    
+    public List<String> getImages() {
+        return this.images;
+    }
 
     // setter
     public void setName(String name) {
@@ -42,6 +47,10 @@ public class HelloBean implements Serializable {
 
     public void setOptions(List<String> options) {
         this.options = options;
+    }
+    
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 
     public String sayHello() {
@@ -81,5 +90,9 @@ public class HelloBean implements Serializable {
         this.options.add("course JSF");
         this.options.add("course PrimeFaces");
         this.options.add("course Java EE");
+        
+        this.images = new ArrayList<String>();
+        this.images.add("image.png");
+        this.images.add("image1.png");
     }
 }
