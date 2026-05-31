@@ -4,20 +4,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.annotation.ManagedProperty;
+import javax.faces.bean.ManagedProperty; 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.primefaces.model.chart.BarChartModel;
 
 @ManagedBean(name="hello")
 @RequestScoped
 public class HelloBean implements Serializable {
     @ManagedProperty(value="#param.number")
     private String page;
-
     private String name;
     private String biography;
     private List<String> options;
     private List<String> images;
+    private BarChartModel barModel;
 
     // getter
     public String getName() {
@@ -94,5 +95,32 @@ public class HelloBean implements Serializable {
         this.images = new ArrayList<String>();
         this.images.add("image.png");
         this.images.add("image1.png");
+
+        this.barModel = new BarChartModel();
+        ChartSeries s1 = new ChartSeries("Cars sold");
+        s1.set("2010", 10000);
+        s1.set("2011", 12355);
+        s1.set("2012", 100);
+        s1.set("2013", 10456);
+        s1.set("2015", 56800);
+        s1.set("2010", 67780);
+        
+        ChartSeries s2 = new ChartSeries("motorbikes sold");
+        s1.set("2010", 10600);
+        s1.set("2011", 1235);
+        s1.set("2012", 1456);
+        s1.set("2013", 14556);
+        s1.set("2014", 54400);
+        s1.set("2015", 3330);
+
+        this.barModel.addSeries(s1);
+        this.barModel.addSeries(s2);
+        
+        this.barModel.setTitle("car/motorcycle sales comparison");
+        
+        Axis x = this.barModel.getAxis(AxisType.X);
+        x.setLabel("Years");
+        Axis y = this.barModel.getAxis(AxisType.Y);
+        y.setLabel("sales");
     }
 }

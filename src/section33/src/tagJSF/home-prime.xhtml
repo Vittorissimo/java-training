@@ -16,6 +16,66 @@
         <h1> Hello 1! </h1>
 
         <h:form>
+
+            <br />
+                    
+            <ui:tabMenu activeIndex="#{param.tab}">
+                <ui:menuitem value="Tab 1" outcome="home-prime">
+                    <f:param name="tab" value="0"></f:param>
+                </ui:menuitem>
+                <ui:menuitem value="Tab 2" outcome="home-prime">
+                    <f:param name="tab" value="1"></f:param>
+                </ui:menuitem>
+                <ui:menuitem value="Tab 3" outcome="home-prime">
+                    <f:param name="tab" value="2"></f:param>
+                </ui:menuitem>
+            </ui:tabMenu>
+
+            <br />
+            <ui:menu>
+                <br />
+
+                <ui:submenu label="Menu1">
+
+                    <ui:submenu label="subMenu1">
+                        <ui:menuitem actionListener="#{hello.update}" value="Save" />
+                        <ui:menuitem actionListener="#{hello.update}" value="Edit" />
+                        <ui:menuitem actionListener="#{hello.update}" value="Update" />
+                    </ui:submenu>
+
+                </ui:submenu>
+
+                <ui:submenu label="Menu1 extra">
+                    <ui:menuitem actionListener="#{hello.update}" value="Save" />
+                    <ui:menuitem actionListener="#{hello.update}" value="Edit" />
+                    <ui:menuitem actionListener="#{hello.update}" value="Update" />
+                </ui:submenu>
+
+                <ui:submenu label="Menu2">
+                    <ui:menuitem actionListener="#{hello.update}" value="Save" />
+                    <ui:menuitem actionListener="#{hello.update}" value="Edit" />
+                    <ui:menuitem actionListener="#{hello.update}" value="Update" />
+                </ui:submenu>
+
+                <ui:submenu label="Menu3">
+                    <ui:menuitem actionListener="#{hello.update}" value="Save" />
+                    <ui:menuitem actionListener="#{hello.update}" value="Edit" />
+                    <ui:menuitem actionListener="#{hello.update}" value="Update" />
+                </ui:submenu>
+
+            </ui:menu>
+            <br />
+            <ui:contextMenu>
+                <ui:menuitem actionListener="#{hello.update}" value="Save"></ui:menuitem>
+                <ui:menuitem actionListener="#{hello.update}" value="Edit"></ui:menuitem>
+                <ui:menuitem actionListener="#{hello.update}" value="Update"></ui:menuitem>
+            </ui:contextMenu>
+            <br />
+            <ui:colorPicker value=""></ui:colorPicker>
+            <br />
+            <ui:chart type="bar" model="#{hello.barModel}"></ui:chart>
+
+
             <br />
             <ui:galleria var="img" value="#{hello.images}" panelWidth="500" panelHeight="500" showCaption="true">
                 <ui:graphicImage name="img/#{img}" alt="Image #{img}" title="Title Image #{img}" />
@@ -55,7 +115,6 @@
                 <p> This sentence serves as testing </p>
             </ui:overlayPanel>
 
-            </ui:overlayPanel>
             <br />
             <ui:dialog widgetVar="alert" header="Title dialog">
                 <ui:outputLabel value="Are you sure>"></ui:outputLabel>

@@ -1,0 +1,8 @@
+services:
+  php:
+    build: .
+    container_name: java-training
+    ports:
+      - "8087:80"
+    volumes:
+      - ./src:/var/www/html
