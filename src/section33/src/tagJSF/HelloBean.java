@@ -7,6 +7,8 @@ import java.util.List;
 import javax.faces.bean.ManagedProperty; 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.lang.model.element.Element;
+
 import org.primefaces.model.chart.BarChartModel;
 
 @ManagedBean(name="hello")
@@ -19,6 +21,7 @@ public class HelloBean implements Serializable {
     private List<String> options;
     private List<String> images;
     private BarChartModel barModel;
+    private DefaultDiagramModel diagram;
 
     // getter
     public String getName() {
@@ -122,5 +125,29 @@ public class HelloBean implements Serializable {
         x.setLabel("Years");
         Axis y = this.barModel.getAxis(AxisType.Y);
         y.setLabel("sales");
+
+        this.diagram = new DefaultDiagramModel();
+        this.diagram.setMaxConnections(-1);
+
+        Element e1 = new Element("ele 1", "20cm", "6cm");
+        e1.addEndPoint(new DotEndPoint(EndPointAnchor.BOTTOM));
+
+        Element e2 = new Element("ele 2", "40cm", "10cm");
+        e2.addEndPoint(new DotEndPoint(EndPointAnchor.BOTTOM));
+
+        Element e3 = new Element("ele 3", "20cm", "40cm");
+        e3.addEndPoint(new DotEndPoint(EndPointAnchor.BOTTOM));
+
+        Element e4 = new Element("ele 4", "30cm", "20cm");
+        e4.addEndPoint(new DotEndPoint(EndPointAnchor.BOTTOM));
+
+        this.diagram.addElement(e1);
+        this.diagram.addElement(e2);
+        this.diagram.addElement(e3);
+        this.diagram.addElement(e4);
+
+        this.diagram.connect(new Connect(e1.getEndPoints().get(0), e2.getEndPoints().get(0)));
+        this.diagram.connect(new Connect(e2.getEndPoints().get(0), e3.getEndPoints().get(0)));
+        this.diagram.connect(new Connect(e1.getEndPoints().get(0), e4.getEndPoints().get(0)));
     }
 }
